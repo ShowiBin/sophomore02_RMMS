@@ -1,4 +1,4 @@
-import sqlite3
+import pymysql
 
 
 class SqlOp():
@@ -7,10 +7,18 @@ class SqlOp():
     所有的有关sqlite3的数据操作，在本package中执行，所用的数据库才是同一个
     '''
 
-    def getCon(self, DB_name='DB_for_DepartmentManager.db'):
+    def getCon(self, DB_name='RMMS_MAIN'):
         '''连接到指定的db'''
-        con = sqlite3.connect(DB_name)
+        con = pymysql.connect(
+            host='cdb-eb41x5xk.cd.tencentcdb.com',
+            port=10060,
+            user='root',
+            password='showi666',
+            database='RMMS',
+            charset='utf8'
+        )
         return con
+
 
     def runSql(self, sql):
         '''
@@ -20,12 +28,14 @@ class SqlOp():
         '''
         con = self.getCon()
         c = con.cursor()
-        res = c.execute(sql)
-
+        c.execute(sql)
+        res = c.fetchall()
+        # print(res)
         if 'select' in sql:
+
             data = []
             for row in res:
-                data.append(row)
+                data.append(list(row))
             con.commit()
             con.close()
             return data
@@ -33,6 +43,17 @@ class SqlOp():
             con.commit()
             con.close()
             print('#[model.Sql.SqlOp.runSql]#excute success')
+    def getCol(self,table):
+        '''get all the cols name'''
+        c = self.getCon()
+        con = c.cursor()
+        con.execute("select COLUMN_NAME from information_schema.COLUMNS where table_name = '"+table+"'")
+        cols = con.fetchall()
+        colums = []
+        # print(cols,cols[0],cols[0][0],type(cols[0]))
+        for i in cols:
+            colums.append(self.dataTrans(i[0]))
+        return colums
 
     def insert(self, *args, **kwargs):
         '''
@@ -92,6 +113,20 @@ class SqlOp():
         print('#[model.Sql.SqlOp.select]',sql)
         return self.runSql(sql)
 
+
+    def dataTrans(self,data):
+        transTable = {'road_id': '道路编码',
+                      'user_no': '检查人员',
+                      'rcxc_rq': '日常检查日期',
+                      'rcxc_shlx': '本次损坏类型',
+                      'rcxc_shwz': '损坏情况',
+                      'rcxc_bz': '备注'
+                      }
+        try:
+            return transTable[data]
+        except:
+            return data
+
 # s = SqlOp()
 #
 # s.insert('USER',{'ID':'631862020224','NAME':'Showi','YEAR':'2018','PWD':'Showi666','CONMENTS':'管理员'})
@@ -109,3 +144,10 @@ class SqlOp():
 # YEAR TEXT NOT NULL,
 # CONMENTS TEXT)
 # ''')
+
+# DB = SqlOp()
+# obj='rcxc_info'
+# cond = None
+# data = DB.select(obj,condition=cond)
+# cols = DB.getCol(obj)
+

@@ -1,0 +1,117 @@
+
+body{
+	background-image: url(../images/main_bcg_02.jpg);
+/*	background-repeat: no-repeat;
+*/	background-size: cover; /* 重点二 */
+	overflow: auto;
+}
+#loginIcon{
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-bottom: -1px;
+	border-radius: 0;
+	background-color: gray;
+	color: white;
+}
+a{
+	color: gray;
+	text-decoration: none;
+	transition: 0.5s;
+}
+a:hover{/*
+	background-color: gray;*/
+	color: white;
+}
+
+footer{
+	text-align:center;
+
+}
+#toggleText{
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	transition: 0.5s;
+}
+#toggle{
+	display: none;
+}
+
+ul{
+	/*display: none;*/
+	transition: 0.5s;
+}
+#toggle:checked ~ ul{
+	display: block;
+}
+
+#basic_links{margin-bottom: 20px;
+}
+
+footer{
+	color: gray;
+}
+#menu{
+	border: 0;
+	background-color: rgba(0,0,0,0);
+	color: #e29797;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+/*#nav{
+	position: relative;
+}*/
+#all{
+		position: relative;
+
+}
+#app-blogs{
+	position: relative;
+}
+#links{
+	display: none;
+	width: 90%;
+	text-align: center;
+	/*background-color: rgba(0,0,0,.8);*/
+/*	position: absolute;
+	top: -20px;
+	right: -20px;*/
+	/*absolute; top: 0;*/
+}
+embed{
+	display: none;
+}
+
+.navImg_mobile{
+	width: 100%;
+}
+.desOnimg{
+	margin-top: 10px;
+	margin-left: 0px;
+	text-align: center;
+	color: rgba(0,0,0,.5);
+	background-color: antiquewhite;
+	border-radius: 50px;
+	width: 80%;
+}
+#logoImg{
+	width: 100px;
+	height: auto;
+}
+#homeSentence{
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	font-size:20px;
+	/*font-weight: bold;*/
+	color: aliceblue;
+}
+
+#homeWelcome{
+	position: absolute;
+	top: 70%;
+
+	right:0%;
+}

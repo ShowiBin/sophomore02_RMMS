@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="DB_for_DepartmentManager" uuid="78066ee7-1cb7-4ca4-802f-d872f4de50ed">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\27879\source\repos\CodeWorkSapce\HTML\learn\demo10_jikegonhui_plus\DB_for_DepartmentManager.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DB_for_DepartmentManager [2]" uuid="880fa8c8-1f5f-428c-ba58-fcdc2ec30ce0">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Administrator\Desktop\demo10_jikegonhui_plus\DB_for_DepartmentManager.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DB_for_DepartmentManager [3]" uuid="99e5cfca-7461-4262-b70c-2db2f4ba6503">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:X:\work_in_x\soft_pro\demo_biaoyanbu\DB_for_DepartmentManager.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

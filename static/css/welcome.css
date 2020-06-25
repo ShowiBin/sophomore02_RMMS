@@ -1,0 +1,10 @@
+#head{
+    color: #333333;
+    size: B5;
+    text-align: center;font-size: 100px;margin-top: 0;
+}
+
+#qrimg{
+    width: 20%;
+    position: relative;margin-left: 40%;
+}

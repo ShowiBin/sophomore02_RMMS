@@ -1,0 +1,94 @@
+
+body{
+	background-image: url(../images/main_bcg_02.jpg);
+	background-repeat: no-repeat;
+	background-size: cover; /* 重点二 */
+	overflow: auto;
+}
+#userHead{
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+}
+#userHead,#loginIcon{
+	margin-right: 10px;
+	margin-left: 50px;
+	margin-bottom: -1px;
+	border-radius: 90px;
+	background-color: gray;
+	color: white;
+}
+a{
+	color: gray;
+	text-decoration: none;
+	transition: 0.5s;
+}
+a:hover{
+	background-color: gray;
+	color: white;
+}
+
+
+.desOnimg{
+	margin-top: -10px;
+	margin-left: 10px;
+	text-align: center;
+	color: rgba(0,0,0,.5);
+	background-color: antiquewhite;
+	border-radius: 50px;
+	width: 80%;
+}
+footer{
+	text-align:center;
+
+}
+
+#menu{
+	display: none;
+}
+#toggle{
+	display: none;
+}
+
+
+
+
+
+#loginBlock{
+	display: block;
+	align-self: center;
+	width: 40%;
+}
+
+/*#userHead{*/
+/*	text-decoration: none;*/
+/*	background-color: rgba(0,0,0,0);*/
+/*	color: #e29797;*/
+
+/*}*/
+
+.navImg{
+
+	width: 100%;
+}
+#logoImg{
+	width: 100px;
+	height: auto;
+}
+#homeSentence{
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	font-size:30px;
+	font-weight: bold;
+	color: aliceblue;
+}
+#homeWelcome{
+	margin-right:60px;
+}
+
+footer{
+	color: #414141;
+}

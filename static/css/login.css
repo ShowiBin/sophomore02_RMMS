@@ -1,0 +1,25 @@
+#loginBlock{
+    position: relative;
+}
+#singUpBlock{
+    width: 500px;
+    background-color: #222222;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+input{
+    background-color:transparent;
+}
+
+#logoImg{
+	width: 100px;
+	height: auto;
+}
+footer{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}

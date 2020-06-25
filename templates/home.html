@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" media="(min-width:500px)" type="text/css" href="/static/css/my.css">
+	<link rel="stylesheet" media="(max-width:500px)" href="/static/css/my_mobile.css">
+	<title>道路养护信息管理系统 -cqjtu</title>
+
+</head>
+<body>
+{#<canvas id="cas"></canvas>#}
+<div class="all" id="all">
+    <p id="homeSentence" style="color: darkgrey">
+
+    </p>
+    <div>
+    <img class="navImg" src="/static/images/imgWall.jpg" alt="">
+    </div>
+    <div>
+        <img src="/static/images/imgWall_mobile.jpg" alt="" class="navImg_mobile">
+    </div>
+
+{#        <div id="img2">#}
+{#            <img class="navImg" src="/static/images/2.jpg" alt="">#}
+{#        </div>#}
+{#        <div id="img3">#}
+{#            <img class="navImg" src="/static/images/3.jpg" alt="">#}
+{#        </div>#}
+{#        <div id="img4">#}
+{#            <img class="navImg" src="/static/images/4.jpg" alt="">#}
+{#        </div>#}
+
+	<div class="container">
+		<div class="navbar navbar-inverse" id="nav">
+			<div class="navbar-header">
+				<a href="/home" class="">
+					<img id="logoImg" src="/static/images/logo.svg">
+				</a>
+				<button id="menu">MENU</button>
+			</div>
+			<div id="links"><!--
+				<label for="toggle" id="toggleText">MENU</label>
+				<input type="checkbox" id="toggle"> -->
+				<ul class="nav navbar-nav navbar-left" id="basic_links">
+					<li><a href="/home">HOME</a></li>
+					<li><a href="/events">道路</a></li>
+					<li id=""><a href='/blogs' class="btn-href" id="blogs_href">日常巡逻</a></li>
+					<li><a href="/products">定期巡逻</a></li>
+{#					<li><a href="/showus">SHOWUS</a></li>#}
+{#					<li><a href="/DM">DM</a></li>#}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/about">ABOUT</a></li>
+					<li><a href="/learn_more">LEARN MORE</a></li>
+					<li><a href="/login" id="loginIcon">LOGIN</a></li>
+                    <div id="sb"></div>
+				</ul>
+			</div>
+		</div>
+	</div>
+{#<a id="homeWelcome" href="/welcome" style="font-size: 30px;float: right;">加入我们</a>#}
+     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <embed wmode="transparent" src="/static/flash/01.swf" quality="high" bgcolor="#FDF6E3"  name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">    </div>
+{#<embed wmode="transparent" src="https://files.cnblogs.com/files/jingmoxukong/honehone_clock_tr.swf" quality="high" bgcolor="#FDF6E3" width="240" height="110" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">#}
+{{ nickname }}
+
+
+
+    <div class="container" >
+	<div class="container" id="app-blogs">
+
+		<div class="col-md-5" id="blogs" ·>
+
+			<div class="panel panel-default panel-danger" id="blogs-panel">
+
+				<div class="panel-heading">时政要闻</div>
+				<table class="table table-striped">
+					<tr id="firstBlog">
+						<td><a href="https://www.baidu.com/" class="link">交通致富之道</a></td>
+					</tr>
+
+				</table>
+				<div class="panel-footer" style="text-align: center">
+{#                    <a href="/blogs" >Getting more</a>#}
+                </div>
+			</div>
+		</div>
+
+		<div class="col-md-7" id="events" ·>
+
+			<div class="panel panel-default panel-danger" id="blogs-panel">
+
+				<div class="panel-heading">组内事件</div>
+				<table class="table table-striped">
+					<tr id="firstevents">
+						<td><a href="http://cpc.people.com.cn/" class="link">坚决跟党走，一切服从党的安排</a></td>
+					</tr>
+
+				</table>
+				<div class="panel-footer" style="text-align: center">
+{#                    <a href="/events" >Getting more</a>#}
+                </div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+<footer >@copyright 重庆交通大学信息学院<a href="http://www.showi.online">@唐佳雪@Showi小冰@杨泽来@张益劼 ICP备案信息:湘ICP备20004360号</a></footer>
+
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+	<script src="/static/js/main.js"></script>
+{#    <script type="text/javascript" src="/static/js/lzxg.js"></script>#}
+
+<script>
+    //home sentence
+home_sentense_timer = 0
+nowSentence = ''
+$('#homeSentence').text('道路养护信息管理系统')
+
+sentence = ['Welcome',' ','To',' ','RMM',' ','System']
+function home_sentence_show(){
+
+    console.log(home_sentense_timer)
+    if (home_sentense_timer < 7){
+        nowSentence +=sentence[home_sentense_timer]
+    }
+    else if(home_sentense_timer%7 == 0){
+        nowSentence = 'Welcome'
+    }
+    else{
+        nowSentence +=sentence[home_sentense_timer%7]
+    }
+    $('#homeSentence').text(nowSentence)
+    // setTimeout(home_sentence_show,500)
+    home_sentense_timer+=1
+
+}
+
+var lala = function(){
+    setInterval(home_sentence_show,500)
+}
+setTimeout(lala,2000)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+    <title>ShowData</title>
+    <style>
+        body{
+            background-image:url(/static/images/dark_bcg.jpg);
+            font-size: large;
+            font-style: oblique;
+            color: antiquewhite;
+        }
+        .title{
+            font-size: xx-large;
+        }
+        .nav{
+            font-size: x-small;
+        }
+        .inserBlock{
+            position: absolute;
+            background-color: dimgray;
+        }
+        #showPre{
+            {#设置详细信息的样式#}
+            position: absolute;
+            background-color: black;
+            font-size: x-small;
+            right: 5px;
+            height: 50%;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="inserBlock" style="color: black">
+{#    <form action='#' id="insertForm">#}
+    <p id="lalala" style="text-align: center">Insert Data<br></p>
+    <button class="btn btn-info btn-block"  id="submit">Submit</button>
+{#    </form>#}
+    <button class="btn btn-warning btn-block" id="hideInsertB">收起</button>
+</div>
+
+<div class="nav"><p>当前位置:<a href="/">道路养护信息系统</a>->日常查询</p></div>
+<div class="title">
+    <div>
+        <p id="title">ShowTable</p>
+    </div>
+</div>
+<div class="serach">
+    <button class="btn" id="searchBtn" style="float: right;color: black">Search</button>
+    <input class="form-control" type="Search" style="width: 20%;float: right" id="cond" placeholder="搜索">
+</div>
+<br>
+<div class="insert">
+    <button  class="btn" id="insert" onclick="insert(obj)" style="color:black;margin-bottom: 20px ">添加数据</button>
+</div>
+<div id="dataT">
+    <table class="table table-bordered  table-hover table-success">
+        <thead id="tableHead">
+            {% for i in colnames %}
+                <td>{{ i }}</td>
+            {% endfor %}
+        </thead>
+
+        <tbody>
+            {% for raw in data %}
+                <tr>
+                    {% for i in raw %}
+                        <td>{{ i }}</td>
+                    {% endfor %}
+                    <td><button style="background-color: transparent;border-radius: 12px;" id='{{ raw[0] }}' onclick="del('{{ colnames[0]  }} ={{ raw[0] }}')" >删除</button></td>
+                    <td><button style="background-color: transparent;border-radius: 12px;"  onclick="update('{{ colnames[0]  }} ={{ raw[0] }}')" >修改</button></td>
+                <td><button style="background-color: transparent;border-radius: 12px;"  onclick="showPre('{{ colnames[0]  }} ={{ raw[0] }}')" >详细信息</button></td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div >数据共计: {{ (data|length) }}项</div>
+</div>
+{#<a href="" onclick="del()"></a>#}
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/showTable_dinqi.js"></script>
+</body>
+</html>
+
+
+
+

@@ -26,6 +26,7 @@ class SqlOp():
         :param sql: slq语句
         :return: 返回的参数啥的
         '''
+        print(sql)
         con = self.getCon()
         c = con.cursor()
         c.execute(sql)
@@ -52,7 +53,7 @@ class SqlOp():
         colums = []
         # print(cols,cols[0],cols[0][0],type(cols[0]))
         for i in cols:
-            colums.append(self.dataTrans(i[0]))
+            colums.append(self.en2cn(i[0]))
         return colums
 
     def insert(self, *args, **kwargs):
@@ -84,7 +85,9 @@ class SqlOp():
         :param condition:str True or 'ID' = '23213'
         :return:
         '''
-        sql = 'delete from '+tabel_name+' where '+condition
+        condition = condition.replace(' ','')
+        condition_ = self.cn2en(condition.split('=')[0])+'='+condition.split('=')[1]
+        sql = 'delete from '+tabel_name+' where '+condition_
         self.runSql(sql)
 
     def update(self,tabel_name,col,newdata,condition):
@@ -108,31 +111,63 @@ class SqlOp():
         :return:返回一个包含所有信息的数据
         '''
         if not condition:
-            condition = 'True'
-        sql = 'select * from '+table_name+' where '+condition
+            condition_ = 'True'
+        else:
+            condition = condition.replace(' ', '')
+            condition_ = self.cn2en(condition.split('=')[0]) + '=' + condition.split('=')[1]
+        sql = 'select * from '+table_name+' where '+condition_
         print('#[model.Sql.SqlOp.select]',sql)
         return self.runSql(sql)
 
+    def cn2en(self,cn):
+        '''中文转化为英文'''
+        transTable = { '道路编码': 'road_id',
+                       '检查人员': 'user_no',
+                       '日常检查日期': 'rcxc_rq',
+                       '本次损坏类型': 'rcxc_shlx',
+                       '损坏情况': 'rcxc_shwz',
+                       '备注(日常检查)':'rcxc_bz',
+                       '定期检查日期':'sh_rq',
+                       '路面类型':'sh_lmlx',
+                       '道路编号':'sh_dlbh',
+                       '平整度指数(IRI)':'pzd_IRI',
+                       '备注(定期检查)':'pzd_bz'
+                      }
+        try:
+            return transTable[cn]
+        except:
+            return cn
 
-    def dataTrans(self,data):
+
+
+
+
+
+    def en2cn(self,en):
+        '''英文转化为中文'''
         transTable = {'road_id': '道路编码',
                       'user_no': '检查人员',
                       'rcxc_rq': '日常检查日期',
                       'rcxc_shlx': '本次损坏类型',
                       'rcxc_shwz': '损坏情况',
-                      'rcxc_bz': '备注'
+                      'rcxc_bz': '备注(日常检查)',
+                      'sh_rq':'定期检查日期',
+                     'sh_lmlx':'路面类型',
+                     'sh_dlbh':'道路编号',
+                     'pzd_IRI':'平整度指数(IRI)',
+                     'pzd_bz':'备注(定期检查)'
                       }
         try:
-            return transTable[data]
+            return transTable[en]
         except:
-            return data
+            return en
 
 # s = SqlOp()
-#
+
 # s.insert('USER',{'ID':'631862020224','NAME':'Showi','YEAR':'2018','PWD':'Showi666','CONMENTS':'管理员'})
-# # s.update('USER','NAME','Showi'," ID = '631862020224'")
+# s.update('USER','NAME','Showi'," ID = '631862020224'")
 # s.delete('USER','ID = 22')
-# print(s.select('USER'))
+# print(s.select('dqjcsh_info','road_id=2')[0])
 
 
 

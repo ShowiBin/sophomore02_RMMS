@@ -82,8 +82,16 @@ def about():
     return '''
         本项目由啦啦啦啦啦啦啦唐佳雪，杨泽来，张益劼，肖思瑶共同完成<br>
 实现技术：<br>
-python, Flask, numpy, javascript, html, css, maven, java, tomcat, spring, sqlServer, sqlite
+python, Flask, numpy, javascript, html, css, maven, java, tomcat, spring, mysql, sqlite
 <br>
+V 20/7/3 使用说明：<br>
+1.在数据插入时，非数值data必须用引号包住<br>
+2.mad 有些表的主键是多个建，那我的del操作就有问题<br>
+3.每个表需要有一个专属于自己的id，好用于删除和修改<br>
+<br>
+4.定期检查还有几个大bug<br>
+5.日常检查有几个小bug<br>
+6.<br>
 参考：<br>
 //Showi小冰 project:重庆交通大学表演部，https://github.com/ShowiBin/byb//我要不要写这个参考呢<br>
     '''
@@ -123,7 +131,10 @@ def showTable():
     except:
         data = 'ERROR'
         cols = 'ERROR'
-    return render_template('showTable.html',data=data,colnames = cols)
+    if obj == 'rcxc_info':
+        return render_template('showTable.html',data=data,colnames = cols)
+    elif obj == 'dqjcpzd_info':
+        return render_template('showTable_dinqi.html',data=data,colnames = cols)
 
 @app.route('/insertData', methods=['post', 'get'])
 def insertData():
@@ -158,14 +169,21 @@ def getCols():
         data = eval((request.args.get('data')))
     except:
         print('no data')
-    print(data)
+    # print(data)
     DB = SqlOp()
+    print('1')
     if data == True:
         cond = (request.args.get('cond'))
         info = (DB.select(obj,condition=cond))
         print(info)
         info = list(info)
         print(info)
+        #处理返回的info中特殊的datetime数据类型
+
+        for i, v in enumerate(info[0]):
+            if 'int' not in str(type(v)):
+                info[0][i] = "'" + str(v) + "'"
+
     try:
         # data = DB.select(obj,condition=cond)
         cols = DB.getCol(obj)
@@ -185,6 +203,7 @@ def delData():
     DB = SqlOp()
     try:
         # data = DB.select(obj,condition=cond)
+        print(obj,cond)
         DB.delete(obj,cond)
         res = 1
     except:
@@ -192,6 +211,48 @@ def delData():
         res =0
         print(str(res))
     return str(res)
+
+
+@app.route('/showPre', methods=['post', 'get'])
+def showPre():
+    cond = (request.args.get('cond'))
+    s = SqlOp()
+    data = s.select('dqjcsh_info','road_id='+cond.split('=')[-1])
+    print(data)
+    cols = ''
+    datas=''
+    for i in ['路面类型',
+'起止位置',
+'检查总长',
+'检查总宽',
+'损坏类型',
+'损坏长',
+'损坏宽',
+'损坏高',
+'损坏位置及损坏情况描述',
+'损坏面积']:
+        cols = cols + '<td>'+i+'</td>'
+    for i in data[0][3:]:
+        datas = datas+'<td>'+str(i)+'</td>'
+    print(datas)
+    return '''<div id="showPre">
+<table class="table table-bordered  table-hover table-success">
+        <thead id="tableHead">
+                '''+cols+'''
+        </thead>
+
+        <tbody>
+                <tr>
+                        '''+datas+'''
+                </tr>
+                    <td><button style="background-color: transparent;border-radius: 12px;" id='{{ raw[0] }}' onclick="hidePreB('{{ colnames[0]  }} ={{ raw[0] }}')" >收起</button></td>
+                    <td><button style="background-color: transparent;border-radius: 12px;"  onclick="updatePre('{{ colnames[0]  }} ={{ raw[0] }}')" >修改</button></td>
+                
+        </tbody>
+    </table>
+
+</div>'''
+
 
 
 

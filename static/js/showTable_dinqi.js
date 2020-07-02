@@ -259,3 +259,23 @@ function update(updateCond) {
 // // if($('#tonji').text() !== '0') {
 //     $('#tonji').text((eval($('#tonji').text()) + 1).toString())
 // // }
+
+
+
+preBlock = ''
+function showPre(cond) {
+    //展示定期检查的详细信息
+    url = '/showPre?cond='+cond
+    $.post(url).done(function (data) {
+        preBlock = data
+        $('#title').append(preBlock)
+        $('#showPre').slideDown()
+    })
+
+}
+
+function hidePreB() {
+    $('#showPre').slideUp()
+    $('#showPre').remove()
+
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="showPre">
+<table class="table table-bordered  table-hover table-success">
+        <thead id="tableHead">
+            {% for i in colnames %}
+                <td>{{ i }}</td>
+            {% endfor %}
+        </thead>
+
+        <tbody>
+            {% for raw in data %}
+                <tr>
+                    {% for i in raw %}
+                        <td>{{ i }}</td>
+                    {% endfor %}
+                    <td><button style="background-color: transparent;border-radius: 12px;" id='{{ raw[0] }}' onclick="hidePreB('{{ colnames[0]  }} ={{ raw[0] }}')" >收起</button></td>
+                    <td><button style="background-color: transparent;border-radius: 12px;"  onclick="update('{{ colnames[0]  }} ={{ raw[0] }}')" >修改</button></td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

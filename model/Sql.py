@@ -107,14 +107,19 @@ class SqlOp():
     def select(self,table_name,condition = None):
         '''
         为了方便，我直接把所有的都返回了.......0.0
+        //2020/7/9 我是西安了模糊查询，并所有的查询都是模糊插叙
         :param table_name: str
         :return:返回一个包含所有信息的数据
+
         '''
         if not condition:
             condition_ = 'True'
         else:
             condition = condition.replace(' ', '')
             condition_ = self.cn2en(condition.split('=')[0]) + '=' + condition.split('=')[1]
+            condition_ = condition_.replace('=',' like ')
+            condition_ = condition_[:-1]+"%'"
+            condition_ = condition_.replace("'","'%")[:-1]
         sql = 'select * from '+table_name+' where '+condition_
         print('#[model.Sql.SqlOp.select]',sql)
         return self.runSql(sql)
@@ -131,7 +136,16 @@ class SqlOp():
                        '路面类型':'sh_lmlx',
                        '道路编号':'sh_dlbh',
                        '平整度指数(IRI)':'pzd_IRI',
-                       '备注(定期检查)':'pzd_bz'
+                       '备注(定期检查)':'pzd_bz',
+                        '起止位置':'sh_qzwz',
+                        '检查总长':'sh_jczc',
+                        '检查总宽':'sh_jczk',
+                        '损坏类型':'sh_shlx',
+                        '损坏长':'sh_shc',
+                        '损坏宽':'sh_shk',
+                        '损坏高':'sh_shg',
+                        '损坏位置以及损坏情况':'sh_shwz',
+                        '损坏面积':'sh_shmj'
                       }
         try:
             return transTable[cn]
@@ -155,7 +169,16 @@ class SqlOp():
                      'sh_lmlx':'路面类型',
                      'sh_dlbh':'道路编号',
                      'pzd_IRI':'平整度指数(IRI)',
-                     'pzd_bz':'备注(定期检查)'
+                     'pzd_bz':'备注(定期检查)',
+                      'sh_qzwz':'起止位置',
+                     'sh_jczc':'检查总长',
+                     'sh_jczk':'检查总宽',
+                     'sh_shlx':'损坏类型',
+                     'sh_shc':'损坏长',
+                     'sh_shk':'损坏宽',
+                     'sh_shg':'损坏高',
+                     'sh_shwz':'损坏位置以及损坏情况',
+                     'sh_shmj':'损坏面积'
                       }
         try:
             return transTable[en]

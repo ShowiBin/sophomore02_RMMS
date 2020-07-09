@@ -135,6 +135,8 @@ def showTable():
         return render_template('showTable.html',data=data,colnames = cols)
     elif obj == 'dqjcpzd_info':
         return render_template('showTable_dinqi.html',data=data,colnames = cols)
+    else:
+        return render_template('showTable.html',data=data,colnames = cols)
 
 @app.route('/insertData', methods=['post', 'get'])
 def insertData():
@@ -235,7 +237,7 @@ def showPre():
     for i in data[0][3:]:
         datas = datas+'<td>'+str(i)+'</td>'
     print(datas)
-    return '''<div id="showPre">
+    return '''<div id="showPre" style="position:absolute;right : 0px;">
 <table class="table table-bordered  table-hover table-success">
         <thead id="tableHead">
                 '''+cols+'''

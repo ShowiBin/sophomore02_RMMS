@@ -7,8 +7,10 @@ locStr = decodeURI(locStr)
 paras = locStr.split('?')[1]
 
 obj = locStr.split('=')[1]
-$('.inserBlock').hide()
 
+$('.inserBlock2').hide()
+
+$('.inserBlock').hide()
 let times = 0
 function insert(obj){
     // `data inserting block`
@@ -51,14 +53,14 @@ $('#hideInsertB').click(function () {
     $('.inserBlock').slideUp()
 })
 
-
+$('#hideInsertB2').click(function () {
+    $('.inserBlock').slideUp()
+})
 
 
 //给搜索按钮写函数=============================
 function selectData() {
     cond = $('#cond').val()
-    cond = "'" + cond + "'"//2020/7/9
-
     // cond = cond.split('&')[0]
     obj = obj.split('&')[0]
     console.log(cond)
@@ -103,31 +105,79 @@ function insertData() {
             var lengthofdata = eval(data_).length
             // console.log(data_.length)
             for(let i = 0 ; i < lengthofdata ; i++){
-                dataForinput+=("'"+$('#input'+i.toString()).val()+"'"+';')//2020/7/9
+                dataForinput+=($('#input'+i.toString()).val()+';')
             }
             console.log(dataForinput)
-            insertOp()
+            let conforafter  = $('#input'+'0').val()//此处用于后续的操作
+            insertOp(conforafter)
 
 
 
         })
     }
-    function insertOp() {
+    function insertOp(condfromBefore) {
         url = '/insertData?obj=' + obj + '&data="' + dataForinput + '"'
         $.post(url).done(function (data) {
             console.log(data)
             if (data == 1) {
                 console.log('isOk')
-                alert('成功！')
                 for (let i = 0; i < 14; i++) {//清空输入框
                     $('#input' + i.toString()).val('')
                 }
-                window.location.reload()
-                let isWriteMingXi = confirm('#定期检查#的数据插入后请随机插入#明细表#的相关内容#')
-                if(isWriteMingXi == true){
-                    window.location.href = '/showTable?obj=dqjcsh_info'
-                }
+                $('.inserBlock').slideUp()
+                url = '/getCols?obj=dqjcsh_info'
+                $.post(url).done(function (data__) {
+                    let data = eval(data__)
+                    insertFrom = $('#lalala2')
+                    elem = ''
+                    for(let i = 0 ; i < data__.length;i++){
+                        elem=elem+data__[i].toString()+":<textarea id = 'input_"+i+"' style='right:0%'></textarea><br>"
+                    }
+                    insertFrom.append(elem)
+                    $('.inserBlock2').slideDown()//拉下来
+                    url = '/getCols?obj='+obj.split('&')[0]
+            // console.log(times)
 
+                    $.post(url).done(function (data_) {
+                        var lengthofdata = eval(data_).length
+                        // console.log(data_.length)
+                        dataForinput = ''//after the last step
+                        for(let i = 0 ; i < lengthofdata ; i++){
+                            dataForinput+=($('#input_'+i.toString()).val()+';')
+                        }
+                        console.log(dataForinput)
+                        // insertOp()
+                         url = '/insertData?obj=' + obj + '&data="' + dataForinput + '"'
+                        $.post(url).done(function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                console.log('isOk')
+                                alert('成功！')
+                                for (let i = 0; i < 14; i++) {//清空输入框
+                                    $('#input_' + i.toString()).val('')
+                                }
+                                url = '/delData?obj='+obj.split('&')[0]+'&cond='+condfromBefore
+                                $.post(url).done(function (res) {
+                                console.log(res)
+                                if (res == '1'){
+                                    console.log('isOk')
+                                    // alert('数据删除成功！')
+                                    // for(let i = 0 ; i < 14 ; i++){
+                                    //     $('#input'+i.toString()).val('')
+                                            // }
+                                    window.location.reload()
+                                }
+                                else {
+                                    alert('任务失败，请尽快联系开发者：2787913282@qq.com')
+                                }
+                            })
+                            }else {
+                                alert('数据插入失败;请检查数据是否正确。')
+                            }
+                        })
+                    })
+
+                 })
             } else {
                 alert('数据插入失败，请检查数据是否正确。')
             }

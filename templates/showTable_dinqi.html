@@ -31,6 +31,10 @@
             height: 50%;
             width: 50%;
         }
+        .attri4search{
+            color: black;
+            font-size: large;
+        }
     </style>
 </head>
 <body>
@@ -48,9 +52,25 @@
         <p id="title">ShowTable</p>
     </div>
 </div>
-<div class="serach">
-    <button class="btn" id="searchBtn" style="float: right;color: black">Search</button>
-    <input class="form-control" type="Search" style="width: 20%;float: right" id="cond" placeholder="搜索">
+
+<div class="serach" >
+
+    <div id="inputB" style="display: inline;" >
+        <button class="btn" id="searchBtn" style="color: black;display: inline;float: right">Search</button>
+        <input class="form-control" type="Search" style="width: 20%;display: inline;float: right" id="cond" placeholder="搜索">
+    </div>
+     <div class="attri4search " style="display: inline" >
+        <select id='attr4Sear' style="
+            width: 10%;
+            height: 35px;
+            float: right">
+                    <option value="">按照属性搜索</option>
+
+            {% for i in colnames %}
+                <option value ={{ i }}>{{ i }}</option>
+            {% endfor %}
+        </select>
+    </div>
 </div>
 <br>
 <div class="insert">

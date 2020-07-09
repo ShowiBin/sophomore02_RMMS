@@ -56,6 +56,7 @@ $('#hideInsertB').click(function () {
 //给搜索按钮写函数=============================
 function selectData() {
     cond = $('#cond').val()
+    cond = "'" + cond + "'"//2020/7/9
     // cond = cond.split('&')[0]
     obj = obj.split('&')[0]
     console.log(cond)
@@ -64,9 +65,11 @@ function selectData() {
     }
     else{
         // function turn(target) {
-    url = '/showTable?obj='+obj+'&cond='+cond+''
-    console.log(url)
-    $(location).prop('href',url)
+        attr4search = $('#attr4Sear').val()
+        cond = attr4search + '=' + cond
+        url = '/showTable?obj='+obj+'&cond='+cond
+        console.log(url)
+        $(location).prop('href',url)
     }
 
 }
@@ -84,7 +87,7 @@ function insertData() {
     let dataForinput=''
     if(obj == 'Good'){
         for(let i = 0 ; i < 14 ; i++){
-            dataForinput+=($('#input'+i.toString()).val()+';')
+            dataForinput+=("'"+$('#input'+i.toString()).val()+"'"+';')//2020/7/9
             console.log(dataForinput)
         }
         // dataForinput+=$('')
@@ -98,7 +101,7 @@ function insertData() {
             var lengthofdata = eval(data_).length
             // console.log(data_.length)
             for(let i = 0 ; i < lengthofdata ; i++){
-                dataForinput+=($('#input'+i.toString()).val()+';')
+                dataForinput+=("'"+$('#input'+i.toString()).val()+"'"+';')//2020/7/9
             }
             console.log(dataForinput)
             insertOp()

@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24e52a5f-5325-42ff-94b5-8025aee8c4b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/showTable_dinqi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showTable_dinqi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/showTable_dinqi_branch02.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/showTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/showTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/showTable_dinqi.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/showTable_dinqi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showTable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showTable_dinqi.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showTable_dinqi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +62,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="X:\work_in_x\soft_pro\demo_RMMS\templates" />
       <recent name="X:\work_in_x\soft_pro\demo_RMMS\static\js" />
+      <recent name="X:\work_in_x\soft_pro\demo_RMMS\templates" />
       <recent name="C:\Users\27879\source\repos\CodeWorkSapce\HTML\learn\demo10_jikegonhui_plus\static\images" />
       <recent name="C:\Users\27879\source\repos\CodeWorkSapce\HTML\learn\demo10_jikegonhui_plus\static\videos" />
       <recent name="C:\Users\27879\source\repos\CodeWorkSapce\HTML\learn\demo10_jikegonhui_plus\static\js" />
@@ -251,6 +252,11 @@
       <workItem from="1593051323469" duration="6650000" />
       <workItem from="1593084091530" duration="7497000" />
       <workItem from="1593707880322" duration="11124000" />
+      <workItem from="1593954798025" duration="4458000" />
+      <workItem from="1594027066975" duration="927000" />
+      <workItem from="1594039311707" duration="5240000" />
+      <workItem from="1594302435539" duration="4285000" />
+      <workItem from="1594308526368" duration="300000" />
     </task>
     <servers />
   </component>
@@ -282,14 +288,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="218" height="477" key="HiddenNamespacesPopup/0.0.1280.680@0.0.1280.680" timestamp="1593055515218" />
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1593707883463">
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1594308530037">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1593707883463" />
-    <state x="297" y="-6" width="672" height="676" key="search.everywhere.popup" timestamp="1593715958017">
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1594308530037" />
+    <state x="297" y="-6" width="672" height="676" key="search.everywhere.popup" timestamp="1594040887497">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="-6" width="672" height="676" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1593715958017" />
+    <state x="297" y="-6" width="672" height="676" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594040887497" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/demo10_jikegonhui_plus$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1582280195921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />

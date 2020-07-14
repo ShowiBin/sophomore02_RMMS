@@ -85,12 +85,6 @@ def about():
 python, Flask, numpy, javascript, html, css, maven, java, tomcat, spring, mysql, sqlite
 <br>
 V 20/7/3 使用说明：<br>
-1.在数据插入时，非数值data必须用引号包住<br>
-2.mad 有些表的主键是多个建，那我的del操作就有问题<br>
-3.每个表需要有一个专属于自己的id，好用于删除和修改<br>
-<br>
-4.定期检查还有几个大bug<br>
-5.日常检查有几个小bug<br>
 6.<br>
 参考：<br>
 //Showi小冰 project:重庆交通大学表演部，https://github.com/ShowiBin/byb//我要不要写这个参考呢<br>
@@ -176,7 +170,8 @@ def getCols():
     print('1')
     if data == True:
         cond = (request.args.get('cond'))
-        info = (DB.select(obj,condition=cond))
+        print(cond)
+        info = (DB.select(obj,condition=cond,flag=False))
         print(info)
         info = list(info)
         print(info)
@@ -184,7 +179,7 @@ def getCols():
 
         for i, v in enumerate(info[0]):
             if 'int' not in str(type(v)):
-                info[0][i] = "'" + str(v) + "'"
+                info[0][i] =  str(v)
 
     try:
         # data = DB.select(obj,condition=cond)

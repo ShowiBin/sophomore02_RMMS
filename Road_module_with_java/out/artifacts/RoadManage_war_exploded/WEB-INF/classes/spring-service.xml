@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--1.扫描service下的包-->
+    <context:component-scan base-package="service"/>
+
+    <!--2.将所有业务类 注入到Spring 可以配置/注解-->
+    <bean id="cxd_service_impl" class="service.cxd_service_impl">
+        <property name="cxd_m" ref="cxd_mapper"/>
+    </bean>
+
+    <bean id="fgd_service_impl" class="service.fgd_service_impl">
+        <property name="fgd_m" ref="fgd_mapper"/>
+    </bean>
+
+    <bean id="fsss_service_impl" class="service.fsss_service_impl">
+        <property name="fsss_m" ref="fsss_mapper"/>
+    </bean>
+
+    <bean id="road_service_impl" class="service.road_service_impl">
+        <property name="road_m" ref="road_mapper"/>
+    </bean>
+
+    <bean id="rxd_service_impl" class="service.rxd_service_impl">
+        <property name="rxd_m" ref="rxd_mapper"/>
+    </bean>
+
+    <!--3.声明式事物配置-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--aop事物支持-->
+</beans>

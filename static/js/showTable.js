@@ -183,7 +183,7 @@ function update(updateCond) {
         // insertB.hide()
         // $('body').append(singUpHtml.responseText)
         url = '/getCols?obj='+obj.split('&')[0]+'&data=True&cond='+updateCond
-        // console.log(times)
+        console.log(updateCond)
         if (times !== 0 ) {
             $.post(url).done(function (data) {
                 // console.log(data)

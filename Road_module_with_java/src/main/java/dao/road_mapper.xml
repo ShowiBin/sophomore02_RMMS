@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.road_mapper">
+    <insert id="add_road" parameterType="road">
+     insert into road_info values (${road_id},${road_name},${road_zx},${road_qd},${road_zd},
+     ${road_sjdw},${road_sgdw},${road_dldj},${road_lmdj},${road_sjss},${road_lfkdfw},${road_dlcd},${road_dlmj},
+     ${road_AADT},${road_jtldj},${road_ssxz},${road_glfl},${road_gldw},${road_yhdw},#{road_jzny})
+    </insert>
+
+    <delete id="delete_road" parameterType="String">
+    delete from road_info where road_id = #{road_id}
+    </delete>
+
+    <update id="update_road" parameterType="road">
+    update road_info set road_id=${road_id},road_name=${road_name},road_zx=${road_zx},road_qd=${road_qd},
+    road_zd=${road_zd},road_sjdw=${road_sjdw},road_sgdw=${road_sgdw},road_dldj=${road_dldj},road_lmdj=${road_lmdj},
+    road_sjss=${road_sjss},road_lfkdfw=${road_lfkdfw},road_dlcd=${road_dlcd},road_dlmj=${road_dlmj},road_AADT=${road_AADT},
+    road_jtldj=${road_jtldj},road_ssxz=${road_ssxz},road_glfl=${road_glfl},road_gldw=${road_gldw},road_yhdw=${road_yhdw},road_jzny=#{road_jzny}
+    where road_id = #{road_id}
+    </update>
+
+    <select id="find_all_road" resultType="road">
+    select * from road_info
+    </select>
+
+    <select id="find_road_by_id" resultType="road">
+    select * from road_info
+    where road_id = #{road_id} or road_id like '%${road_id}%'
+    </select>
+
+
+    <!--    2-->
+    <select id="find_by_name" resultType="road">
+        select * from road_info
+        where road_name like '%${road_name}%'
+    </select>
+
+    <!--    3-->
+    <select id="find_by_zx" resultType="road">
+        select * from road_info
+        where road_zx like '%${road_zx}%'
+    </select>
+
+    <!--    4-->
+    <select id="find_by_qd" resultType="road">
+        select * from road_info
+        where road_qd like '%${road_qd}%'
+    </select>
+
+    <!--    5-->
+    <select id="find_by_zd" resultType="road">
+        select * from road_info
+        where road_zd like '%${road_zd}%'
+    </select>
+
+    <!--    6-->
+    <select id="find_by_sjdw" resultType="road">
+        select * from road_info
+        where road_sjdw like '%${road_sjdw}%'
+    </select>
+
+    <!--    7-->
+    <select id="find_by_sgdw" resultType="road">
+        select * from road_info
+        where road_sgdw like '%${road_sgdw}%'
+    </select>
+
+    <!--    8-->
+    <select id="find_by_dldj" resultType="road">
+        select * from road_info
+        where road_dldj like '%${road_dldj}%'
+    </select>
+
+    <!--    9-->
+    <select id="find_by_lmdj" resultType="road">
+        select * from road_info
+        where road_lmdj like '%${road_lmdj}%'
+    </select>
+
+    <!--    10-->
+    <select id="find_by_sjss" resultType="road">
+        select * from road_info
+        where road_sjss like '%${road_sjss}%'
+    </select>
+
+    <!--   11 -->
+    <select id="find_by_lfkdfw" resultType="road">
+        select * from road_info
+        where road_lfkdfw like '%${road_lfkdfw}%'
+    </select>
+
+    <!--    12-->
+    <select id="find_by_dlcd" resultType="road">
+        select * from road_info
+        where road_dlcd = ${road_dlcd}
+    </select>
+
+    <!--    13-->
+    <select id="find_by_dlmj" resultType="road">
+        select * from road_info
+        where road_dlmj = ${road_dlmj}
+    </select>
+
+    <!--    14-->
+    <select id="find_by_AADT" resultType="road">
+        select * from road_info
+        where road_AADT like '%${road_AADT}%'
+    </select>
+
+    <!--    15-->
+    <select id="find_by_jtldj" resultType="road">
+        select * from road_info
+        where road_jtldj like '%${road_jtldj}%'
+    </select>
+
+    <!--    16-->
+    <select id="find_by_ssxz" resultType="road">
+        select * from road_info
+        where road_ssxz like '%${road_ssxz}%'
+    </select>
+
+    <!--    17-->
+    <select id="find_by_glfl" resultType="road">
+        select * from road_info
+        where road_glfl like '%${road_glfl}%'
+    </select>
+
+    <!--    18-->
+    <select id="find_by_gldw" resultType="road">
+        select * from road_info
+        where road_gldw like '%${road_gldw}%'
+    </select>
+
+    <!--    19-->
+    <select id="find_by_yhdw" resultType="road">
+        select * from road_info
+        where road_yhdw like '%${road_yhdw}%'
+    </select>
+
+    <!--    20-->
+    <select id="find_by_jzny" resultType="road">
+        select * from road_info
+        where road_jzny like '%${road_jzny}%'
+    </select>
+
+</mapper>

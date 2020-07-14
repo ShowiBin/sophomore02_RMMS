@@ -27,7 +27,7 @@ function checkAndLogin() {
             console.log(data['isOk'])
             if (data['isOk'] == 1){
                 console.log('isOk')
-                $(location).prop('href','/home?nickname="'+data["nickname"]+'"')
+                $(location).prop('href','/home?nickname='+data["nickname"]+'&RIGHT='+data["RIGHT"])
             }
             else {
                 alert('Username or password is wrong,try it again!')

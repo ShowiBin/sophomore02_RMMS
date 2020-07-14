@@ -13,7 +13,7 @@ class DataGet():
     def getBlogsData(self):
         '''Get the blogs.html data'''
         data = []
-        s = sql.SqlOp()
+        s = sql.SqlOp2()
         count = s.runSql('select count(*) from BLOGS')[0][0]
         startCol = count - 15
         data = s.select('BLOGS', 'id > ' + str(startCol))
@@ -81,7 +81,7 @@ class DataGet():
     def getEvents(self):
         '''Get the events.html data'''
         data = []
-        s = sql.SqlOp()
+        s = sql.SqlOp2()
         count = s.runSql('select count(*) from EVENTS')[0][0]
         startCol = count - 15
         data = s.select('EVENTS', 'id > ' + str(startCol))
@@ -93,7 +93,7 @@ class DataGet():
     def getAttendence(self):
         '''Get the events.html data'''
         data = []
-        s = sql.SqlOp()
+        s = sql.SqlOp2()
         data = s.select('ATTENDENCE')
         copy = []
         for i in data:
@@ -103,7 +103,7 @@ class DataGet():
     def getMoney(self):
         '''Get the money.html data'''
         data = []
-        s = sql.SqlOp()
+        s = sql.SqlOp2()
         data = s.select('MONEY')
         copy = []
         for i in data:

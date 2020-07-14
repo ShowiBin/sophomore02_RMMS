@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.rxd_mapper">
+    <insert id="add_rxd" parameterType="rxd">
+     insert into rxd_info values (#{road_id},#{rxd_zyc},#{rxd_pmlx},${rxd_cd},${rxd_kdfw},${rxd_zxmj},${rxd_jckmj},
+     ${rxd_mdcd},${rxd_wzatdmj},${rxd_lhdmj},#{rxd_cslx},#{rxd_pslx})
+    </insert>
+
+    <delete id="delete_rxd" parameterType="String">
+    delete from rxd_info where road_id = #{road_id} and rxd_zyc = #{rxd_zyc}
+    </delete>
+
+    <delete id="delete_rxd_part_para" parameterType="map">
+    delete from rxd_info where road_id = #{road_id} and rxd_zyc = #{rxd_zyc}
+    </delete>
+
+    <update id="update_rxd" parameterType="rxd">
+    update rxd_info
+    set road_id=#{road_id},rxd_zyc=#{rxd_zyc},rxd_pmlx=#{rxd_pmlx},rxd_cd=${rxd_cd},rxd_kdfw=${rxd_kdfw},
+    rxd_zxmj=${rxd_zxmj},rxd_jckmj=${rxd_jckmj},rxd_mdcd=${rxd_mdcd},rxd_wzatdmj=${rxd_wzatdmj},rxd_lhdmj=${rxd_lhdmj},rxd_cslx=#{rxd_cslx},rxd_pslx=#{rxd_pslx}
+    where road_id=#{road_id} and rxd_zyc=#{rxd_zyc}
+    </update>
+
+    <select id="find_all_rxd" resultType="rxd">
+    select * from rxd_info
+    </select>
+
+    <select id="find_rxd_by_id" resultType="rxd">
+    select * from rxd_info
+    where road_id = #{road_id}
+    </select>
+
+    <select id="find_rxd_by_part_para" resultType="rxd" parameterType="map">
+    select * from rxd_info where road_id = #{road_id} and rxd_zyc = #{rxd_zyc}
+    </select>
+
+</mapper>

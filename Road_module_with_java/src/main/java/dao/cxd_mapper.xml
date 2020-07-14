@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.cxd_mapper">
+    <insert id="add_cxd" parameterType="cxd">
+        insert into cxd_info values (#{road_id},#{cxd_lmlx},#{cxd_lmhd},#{cxd_jclx},#{cxd_jchd},#{cxd_cds},#{cxd_txfx},
+        #{cxd_jdcdkdfw},#{cxd_zcfjdcdkdfw},#{cxd_ycfjdcdkdfw},#{cxd_cxdmj},#{cxd_ywgjczyd},
+        #{cxd_cslx},#{cxd_cscd},#{cxd_pslx},#{cxd_pscd})
+    </insert>
+
+    <delete id="delete_cxd" parameterType="String">
+        delete from cxd_info where road_id = #{road_id}
+    </delete>
+
+    <update id="update_cxd" parameterType="cxd">
+        update cxd_info
+        set road_id=#{road_id},cxd_lmlx=#{cxd_lmlx},cxd_lmhd=${cxd_lmhd},cxd_jclx=#{cxd_jclx},cxd_jchd=${cxd_jchd},
+        cxd_cds=${cxd_cds},cxd_txfx=#{cxd_txfx},cxd_jdcdkdfw=#{cxd_jdcdkdfw},cxd_zcfjdcdkdfw=#{cxd_zcfjdcdkdfw},
+        cxd_ycfjdcdkdfw=#{cxd_ycfjdcdkdfw},cxd_cxdmj=${cxd_cxdmj},cxd_ywgjczyd=#{cxd_ywgjczyd},cxd_cslx=#{cxd_cslx},
+        cxd_cscd=${cxd_cscd},cxd_pslx=#{cxd_pslx},cxd_pscd=${cxd_pscd}
+        where road_id = #{road_id}
+    </update>
+
+    <select id="find_all_cxd" resultType="cxd">
+    select * from cxd_info
+    </select>
+
+    <select id="find_cxd_by_id" resultType="cxd">
+    select * from cxd_info
+    where road_id = #{road_id}
+    </select>
+
+
+</mapper>

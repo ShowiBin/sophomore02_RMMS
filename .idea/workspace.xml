@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24e52a5f-5325-42ff-94b5-8025aee8c4b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/showTable_dinqi_branch02.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_for_DepartmentManager.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB_for_DepartmentManager.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/USER_DBOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/USER_DBOP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/showTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/showTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/showTable_dinqi.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/showTable_dinqi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/showTable.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showTable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/showTable_dinqi.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showTable_dinqi.html" afterDir="false" />
     </list>
@@ -32,6 +36,14 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="DB_for_DepartmentManager" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="DB_for_DepartmentManager [2]" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="DB_for_DepartmentManager [3]" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
@@ -256,7 +268,13 @@
       <workItem from="1594027066975" duration="927000" />
       <workItem from="1594039311707" duration="5240000" />
       <workItem from="1594302435539" duration="4285000" />
-      <workItem from="1594308526368" duration="300000" />
+      <workItem from="1594308526368" duration="523000" />
+      <workItem from="1594317771188" duration="4278000" />
+      <workItem from="1594333757659" duration="471000" />
+      <workItem from="1594339394344" duration="3712000" />
+      <workItem from="1594352922063" duration="2803000" />
+      <workItem from="1594392265098" duration="697000" />
+      <workItem from="1594421077116" duration="2970000" />
     </task>
     <servers />
   </component>
@@ -268,6 +286,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1593056223686" />
+    <state x="421" y="83" key="FileChooserDialogImpl" timestamp="1594309039095">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1594309039095" />
     <state width="1237" height="2" key="GridCell.Tab.0.bottom" timestamp="1593719621978">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -284,14 +306,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1593719621978" />
-    <state width="218" height="477" key="HiddenNamespacesPopup" timestamp="1593055515218">
+    <state width="218" height="477" key="HiddenNamespacesPopup" timestamp="1594321794484">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="218" height="477" key="HiddenNamespacesPopup/0.0.1280.680@0.0.1280.680" timestamp="1593055515218" />
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1594308530037">
+    <state width="218" height="477" key="HiddenNamespacesPopup/0.0.1280.680@0.0.1280.680" timestamp="1594321794484" />
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1594421077098">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1594308530037" />
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1594421077098" />
     <state x="297" y="-6" width="672" height="676" key="search.everywhere.popup" timestamp="1594040887497">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

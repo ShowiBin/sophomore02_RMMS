@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.fsss_mapper">
+    <insert id="add_fsss" parameterType="fsss">
+     insert into fsss_info values (#{road_id},${fsss_jcjsl},
+     ${fsss_ysksl},${fsss_lmpsl},${fsss_bzpsl},${fsss_scmj},#{fsss_qt})
+    </insert>
+
+    <delete id="delete_fsss" parameterType="String">
+    delete from fsss_info where road_id = #{road_id}
+    </delete>
+
+    <update id="update_fsss" parameterType="fsss">
+    update fsss_info set road_id=#{road_id},fsss_jcjsl=${fsss_jcjsl},fsss_ysksl=${fsss_ysksl},fsss_lmpsl=${fsss_lmpsl},fsss_bzpsl=${fsss_bzpsl},fsss_scmj=${fsss_scmj},fsss_qt=#{fsss_qt}
+    where road_id = #{road_id}
+    </update>
+
+    <select id="find_all_fsss" resultType="fsss">
+    select * from fsss_info
+    </select>
+
+    <select id="find_fsss_by_id" resultType="fsss">
+    select * from fsss_info
+    where road_id = #{road_id}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.fgd_mapper">
+    <insert id="add_fgd" parameterType="fgd">
+        insert into fgd_info values (#{road_id},#{fgd_zzyc},${fgd_hlcd},${fgd_hlgd},#{fgd_hllx},${fgd_cd},
+        #{fgd_kdfw},${fgd_mj},#{fgd_lx})
+        </insert>
+
+    <delete id="delete_fgd" parameterType="String">
+        delete from fgd_info where road_id = #{road_id} and fgd_zzyc = #{fgd_zzyc}
+    </delete>
+
+    <delete id="delete_fgd_part_para" parameterType="map">
+        delete from fgd_info where road_id = #{road_id} and fgd_zzyc = #{fgd_zzyc}
+    </delete>
+
+    <update id="update_fgd" parameterType="fgd">
+        update fgd_info
+        set road_id=#{road_id},fgd_zzyc=#{fgd_zzyc},fgd_hlcd=${fgd_hlcd},fgd_hlgd=${fgd_hlgd},
+        fgd_hllx=#{fgd_hllx},fgd_cd=${fgd_cd},fgd_kdfw=#{fgd_kdfw},fgd_mj=${fgd_mj},fgd_lx=#{fgd_lx}
+        where road_id = #{road_id} and fgd_zzyc = #{fgd_zzyc}
+    </update>
+
+    <select id="find_all_fgd" resultType="fgd">
+    select * from fgd_info
+    </select>
+
+    <select id="find_fgd_by_id" resultType="fgd">
+    select * from fgd_info
+    where road_id = #{road_id}
+    </select>
+
+    <select id="find_fgd_by_part_para" resultType="fgd" parameterType="map">
+    select * from fgd_info where road_id = #{road_id} and fgd_zzyc = #{fgd_zzyc}
+    </select>
+
+</mapper>

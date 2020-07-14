@@ -7,10 +7,11 @@
     <title>ShowData</title>
     <style>
         body{
-            background-image:url(/static/images/dark_bcg.jpg);
+            {#background-image:url(/static/images/main_bcg_02.jpg);#}
+            background-color: white;
             font-size: large;
-            font-style: oblique;
-            color: antiquewhite;
+            {#font-style: oblique;#}
+            color: black;
         }
         .title{
             font-size: xx-large;
@@ -25,8 +26,9 @@
         #showPre{
             {#设置详细信息的样式#}
             position: absolute;
-            background-color: black;
-            font-size: x-small;
+            background-color: darkgrey;
+            font-size: small;
+            
             right: 5px;
             height: 50%;
             width: 50%;
@@ -56,11 +58,11 @@
 <div class="serach" >
 
     <div id="inputB" style="display: inline;" >
-        <button class="btn" id="searchBtn" style="color: black;display: inline;float: right">Search</button>
+        <button class="btn btn-primary" id="searchBtn" style="display: inline;float: right">Search</button>
         <input class="form-control" type="Search" style="width: 20%;display: inline;float: right" id="cond" placeholder="搜索">
     </div>
      <div class="attri4search " style="display: inline" >
-        <select id='attr4Sear' style="
+        <select class="form-control" id='attr4Sear' style="
             width: 10%;
             height: 35px;
             float: right">
@@ -74,7 +76,7 @@
 </div>
 <br>
 <div class="insert">
-    <button  class="btn" id="insert" onclick="insert(obj)" style="color:black;margin-bottom: 20px ">添加数据</button>
+    <button  class="btn btn-primary" id="insert" onclick="insert(obj)" style="margin-bottom: 20px ">添加数据</button>
 </div>
 <div id="dataT">
     <table class="table table-bordered  table-hover table-success">

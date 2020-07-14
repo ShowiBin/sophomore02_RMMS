@@ -80,12 +80,13 @@ paras = locStr.split('?')[1]
 console.log(paras)
 if (paras){
 	nickname = paras.split('=')[1]
+	nickname = nickname.split('&')[0]
 	console.log(nickname)
 	// nickname = nickname.replace('%22','').replace('%22','')
 
 	console.log(nickname)
 	//hide login btn
-	$('#loginIcon').attr('href','/userPage')
+	// $('#loginIcon').attr('href','/userPage')
 	console.log('nickname02:'+nickname)
 	$('#loginIcon').text(nickname)
 	$('#blogs_href').attr('href','/blogs'+'?nickname='+nickname)
@@ -95,8 +96,30 @@ if (paras){
 	// `
 	// $('#sb').after(userLink)
 	// $('#loginIcon').hide()
+}
 
+//判断是否有权限
+road = document.getElementById('road')
+dailyCheck = document.getElementById('dailyCheck')
+regularCheck = document.getElementById('regularCheck')
 
+if(locStr.search("manager") == -1) {
+
+	road.addEventListener('click', function (e) {
+		e.preventDefault();
+		alert('没权限')
+	})
+}
+if (locStr.search("worker") == -1 && locStr.search("manager") == -1){
+
+	dailyCheck.addEventListener('click', function (e) {
+		e.preventDefault();
+		alert('没权限')
+	})
+	regularCheck.addEventListener('click', function (e) {
+		e.preventDefault();
+		alert('没权限')
+	})
 }
 
 
@@ -146,5 +169,6 @@ if(windowWidth >= 640){
 	// do something
 	$('.navImg_mobile').hide()
 }
+
 
 
